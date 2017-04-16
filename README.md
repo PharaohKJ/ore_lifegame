@@ -1,41 +1,74 @@
-# OreLifegame
+# これは何か
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/ore_lifegame`. To experiment with that code, run `bin/console` for an interactive prompt.
+Kanazawa.rb でやったライフゲームペアプロ(未完成)
 
-TODO: Delete this and the text above, and describe your gem
+# 以下はその時のメモ
 
-## Installation
+[ライフゲーム - Wikipedia](https://ja.wikipedia.org/wiki/%E3%83%A9%E3%82%A4%E3%83%95%E3%82%B2%E3%83%BC%E3%83%A0)
 
-Add this line to your application's Gemfile:
+から抜粋して編集とかしている。
 
-```ruby
-gem 'ore_lifegame'
 ```
 
-And then execute:
+ライフゲームのルール[編集]
 
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install ore_lifegame
-
-## Usage
-
-TODO: Write usage instructions here
-
-## Development
-
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
-
-## Contributing
-
-Bug reports and pull requests are welcome on GitHub at https://github.com/PharaohKJ/ore_lifegame. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+ライフゲームでは初期状態のみでその後の状態が決定される
+碁盤のような格子があり、一つの格子はセル（細胞）と呼ばれる
 
 
-## License
+# ライフゲーム **
+  - # ライフゲームの初期状態
+  - # ライフゲームのその後の状態
+  # 碁盤(格子状) **
+    - 近傍のセル **
+      - (ムーア近傍)
+    # セル **
+      - # セルの状態 **
+        - 「生」
+        - 「死」
+        - 生存(生→生)
+        - 誕生(死→生)
+        - 死滅(生→死)
+      - 次のステップ
+        - 世代
+      - ルール
+        - 誕生
+        - 生存
+        - 過疎
+        - 過密
 
-The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
 
+各セルには8つの近傍のセルがある (ムーア近傍) 
+
+
+
+各セルには「生」と「死」の2つの状態があり、あるセルの次のステップ（世代）の状態は周囲の8つのセルの今の世代における状態により決定される
+
+
+
+セルの生死は次のルールに従う
+
+
+
+誕生
+死んでいるセルに隣接する生きたセルがちょうど3つあれば、次の世代が誕生する。
+
+
+- 誕生
+
+生存
+生きているセルに隣接する生きたセルが2つか3つならば、次の世代でも生存する。
+
+
+過疎
+生きているセルに隣接する生きたセルが1つ以下ならば、過疎により死滅する。
+
+- 死滅
+
+過密
+生きているセルに隣接する生きたセルが4つ以上ならば、過密により死滅する。
+
+- 死滅
+
+
+```
